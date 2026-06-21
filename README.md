@@ -1,5 +1,12 @@
 # ap-verify
 
+[![CI](https://github.com/Devanshjoshi2804/ap-verify/actions/workflows/ci.yml/badge.svg)](https://github.com/Devanshjoshi2804/ap-verify/actions/workflows/ci.yml)
+[![Eval gate](https://github.com/Devanshjoshi2804/ap-verify/actions/workflows/eval.yml/badge.svg)](https://github.com/Devanshjoshi2804/ap-verify/actions/workflows/eval.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Checked with mypy](https://img.shields.io/badge/mypy-strict-blue.svg)](https://mypy-lang.org/)
+
 **An accounts-payable agent that knows when it's wrong.**
 
 Anyone can wire an LLM to read an invoice. The hard, valuable problem in finance
@@ -8,6 +15,8 @@ vendor, or a bank account, and must never pay for goods that were not ordered or
 received. `ap-verify` treats *"knowing when the extraction is wrong"* as the core
 engineering problem — a vision model extracts the invoice, then two independent
 verifiers (a **critic** and a **3-way matcher**) decide whether it is safe to pay.
+
+**Contents:** [Results](#results-at-a-glance) · [Benchmark](#benchmark) · [Pipeline](#the-pipeline) · [Architecture](#architecture) · [Setup](#setup) · [Run locally (no keys)](#run-locally--no-api-keys) · [Usage](#usage) · [Collections agent](#collections-agent-whatsapp) · [Web UI](#web-ui) · [Development](#development) · [Roadmap](#roadmap) · [License](#license)
 
 ## Results at a glance
 
