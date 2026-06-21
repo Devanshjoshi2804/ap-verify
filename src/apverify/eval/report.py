@@ -24,9 +24,32 @@ from apverify.eval.fraud_eval import FraudReport
 from apverify.eval.fraud_suite_eval import FraudSuiteReport
 from apverify.eval.fusion import FusionEvaluation, auroc
 from apverify.eval.fusion_cv import FusionCrossValidation
+from apverify.eval.leaderboard import LeaderboardRow
 from apverify.eval.metrics import EvalReport, EvalSnapshot
 from apverify.eval.throughput import ThroughputReport
 from apverify.eval.uncertainty_eval import UncertaintySignals
+
+
+def render_leaderboard(
+    rows: tuple[LeaderboardRow, ...], title: str, console: Console | None = None
+) -> None:
+    console = console or Console()
+    table = Table(title=title, title_justify="left")
+    table.add_column("#", justify="right")
+    table.add_column("Provider", style="cyan")
+    table.add_column("Macro-F1", justify="right")
+    table.add_column("Line-item F1", justify="right")
+    table.add_column("Docs", justify="right")
+    for rank, row in enumerate(rows, start=1):
+        line_item = f"{row.line_item_f1:.2f}" if row.line_item_f1 is not None else "—"
+        table.add_row(
+            str(rank),
+            row.provider,
+            f"{row.macro_f1:.2f}",
+            line_item,
+            str(row.documents),
+        )
+    console.print(table)
 
 
 def render_accuracy(report: AccuracyReport, title: str, console: Console | None = None) -> None:

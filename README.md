@@ -86,6 +86,24 @@ document-failure attribution that turns these field numbers into "which field to
 fix first", and the vendor scorer + seller-vs-buyer prompt fixes that followed, are
 written up in [docs/ERROR_TAXONOMY.md](docs/ERROR_TAXONOMY.md).
 
+**Cross-provider leaderboard.** `apverify-eval-leaderboard` runs *every* configured
+extractor over the same real invoices and ranks them — the honest provider trade-off,
+reproducible by anyone. Measured on DocILE (a provider down or quota-exhausted is
+skipped, not faked):
+
+| # | Provider | Per-field macro-F1 | Line-item F1 | Notes |
+|---|---|---|---|---|
+| 1 | Gemini (gemini-flash-latest) | **0.92** | 0.66 | highest quality; paid |
+| 2 | Ollama (qwen2.5vl:7b) | **0.81** | 0.54 | **local, free, no API key** |
+| 3 | Mistral (pixtral-12b) | 0.56 | — | burst rate-limited |
+| – | Groq (llama-4-scout) | — | — | vision rate-limit invalidated the run |
+
+The finding that matters for an open-source user: **the local model (0.81) is the
+strongest non-Gemini option** — good enough to make the keyless path a real default,
+and the natural cheap leg of a cost cascade (route easy invoices local, escalate hard
+ones to Gemini). Sample sizes vary by provider quota; rerun with
+`apverify-eval-leaderboard --dataset docile --dataset-path ./docile`.
+
 Building this harness immediately paid off: it surfaced that DocILE labels currency
 as the symbol `$` while the model returns the ISO code `USD` — a *metric* bug
 hiding a strong extractor (currency F1 0.00 → 1.00 once fixed). Every "wrong"
@@ -405,6 +423,7 @@ apverify-eval-cord --split test --limit 100                      # critic on rea
 apverify-eval-docile --dataset-path ./docile --limit 200         # critic on real DocILE invoices
 apverify-eval-accuracy --dataset docile --dataset-path ./docile  # per-field + line-item P/R/F1
 apverify-eval-accuracy --dataset cord                            # (CORD downloads itself)
+apverify-eval-leaderboard --dataset docile --dataset-path ./docile  # rank every provider on real invoices
 apverify-eval-calibration --dataset docile --dataset-path ./docile  # ECE + risk-coverage
 apverify-eval-fraud --dataset synthetic                          # duplicate catch-rate vs false-positive
 apverify-eval-bec --count 25                                     # vendor-master / bank-change / BEC
