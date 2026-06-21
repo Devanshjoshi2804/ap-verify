@@ -1,0 +1,36 @@
+{
+  "receivables": [
+    {
+      "customer_name": "Lakshmi Traders",
+      "phone": "+919876543210",
+      "invoice_number": "AR-2025-0007",
+      "amount_due": "84500.00",
+      "currency": "INR",
+      "due_date": "2026-06-15"
+    },
+    {
+      "customer_name": "Orion Components",
+      "phone": "+919812345678",
+      "invoice_number": "AR-2025-0011",
+      "amount_due": "212000.00",
+      "currency": "INR",
+      "due_date": "2026-06-05"
+    },
+    {
+      "customer_name": "Meridian Foods",
+      "phone": "+919900112233",
+      "invoice_number": "AR-2025-0014",
+      "amount_due": "47300.00",
+      "currency": "INR",
+      "due_date": "2026-05-01"
+    },
+    {
+      "customer_name": "Vertex Mills",
+      "phone": "+919811223344",
+      "invoice_number": "AR-2025-0019",
+      "amount_due": "15800.00",
+      "currency": "INR",
+      "due_date": "2026-06-21"
+    }
+  ]
+}

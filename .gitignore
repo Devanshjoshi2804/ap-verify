@@ -1,0 +1,26 @@
+# Secrets — never commit. The template (.env.example) is the only one tracked.
+.env
+.env.*
+!.env.example
+
+# macOS / editor cruft
+.DS_Store
+*.log
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/

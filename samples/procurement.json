@@ -1,0 +1,56 @@
+{
+  "purchase_orders": [
+    {
+      "po_number": "PO-2025-1001",
+      "vendor_name": "ACME Steel Pvt Ltd",
+      "currency": "INR",
+      "subtotal": "156100.00",
+      "lines": [
+        { "description": "TMT Steel Bars (12mm)", "quantity": 2, "unit_price": "78050.00" }
+      ]
+    },
+    {
+      "po_number": "PO-2025-1002",
+      "vendor_name": "Bharat Textiles LLP",
+      "currency": "INR",
+      "subtotal": "79200.00",
+      "lines": [
+        { "description": "Cotton Fabric (roll)", "quantity": 12, "unit_price": "4200.00" },
+        { "description": "Polyester Blend (roll)", "quantity": 8, "unit_price": "3600.00" }
+      ]
+    },
+    {
+      "po_number": "PO-2025-1003",
+      "vendor_name": "Sunrise Electronics",
+      "currency": "INR",
+      "subtotal": "44250.00",
+      "lines": [
+        { "description": "LED Panel 40W", "quantity": 25, "unit_price": "1450.00" },
+        { "description": "Driver Module", "quantity": 25, "unit_price": "320.00" }
+      ]
+    }
+  ],
+  "goods_receipts": [
+    {
+      "grn_number": "GRN-1001",
+      "purchase_order_ref": "PO-2025-1001",
+      "lines": [{ "description": "TMT Steel Bars (12mm)", "quantity_received": 2 }]
+    },
+    {
+      "grn_number": "GRN-1002",
+      "purchase_order_ref": "PO-2025-1002",
+      "lines": [
+        { "description": "Cotton Fabric (roll)", "quantity_received": 12 },
+        { "description": "Polyester Blend (roll)", "quantity_received": 8 }
+      ]
+    },
+    {
+      "grn_number": "GRN-1003",
+      "purchase_order_ref": "PO-2025-1003",
+      "lines": [
+        { "description": "LED Panel 40W", "quantity_received": 25 },
+        { "description": "Driver Module", "quantity_received": 25 }
+      ]
+    }
+  ]
+}
