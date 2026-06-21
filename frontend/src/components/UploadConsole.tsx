@@ -28,8 +28,17 @@ export function UploadConsole(props: Props) {
   return (
     <section className="console">
       <div
-        className={`panel dropzone${dragging ? " is-active" : ""}`}
+        className={`panel dropzone${dragging ? " is-active" : ""}${props.file ? " has-file" : ""}`}
+        role="button"
+        tabIndex={0}
+        aria-label="Upload an invoice: drop a file here, or activate to browse"
         onClick={() => input.current?.click()}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            input.current?.click();
+          }
+        }}
         onDragOver={(e) => {
           e.preventDefault();
           setDragging(true);
@@ -97,7 +106,14 @@ export function UploadConsole(props: Props) {
           </label>
         </div>
         <button className="run" disabled={!props.file || props.busy} onClick={props.onRun}>
-          {props.busy ? "Verifying…" : "Run verification"}
+          {props.busy ? (
+            <>
+              <span className="run-spinner" aria-hidden="true" />
+              Verifying…
+            </>
+          ) : (
+            "Run verification"
+          )}
         </button>
       </div>
     </section>

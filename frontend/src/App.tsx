@@ -3,6 +3,7 @@ import { fetchSamples, loadSample, reviewInvoice } from "./api";
 import type { ReviewResult } from "./types";
 import { UploadConsole } from "./components/UploadConsole";
 import { ReviewView } from "./components/ReviewView";
+import { Working } from "./components/Working";
 
 export function App() {
   const [file, setFile] = useState<File | null>(null);
@@ -69,9 +70,11 @@ export function App() {
         onSample={pickSample}
       />
 
-      {error && <div className="error">{error}</div>}
+      {busy && <Working />}
 
-      {result && <ReviewView result={result} />}
+      {!busy && error && <div className="error">{error}</div>}
+
+      {!busy && result && <ReviewView result={result} />}
     </div>
   );
 }

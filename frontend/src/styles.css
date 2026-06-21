@@ -570,3 +570,164 @@ body {
   font-size: 13px;
   font-family: var(--font-mono);
 }
+
+/* ---- demo-grade polish ---- */
+
+/* keyboard focus — visible and on-brand, suppressed for mouse clicks */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+.dropzone:focus-visible {
+  outline-offset: 4px;
+}
+
+/* dropzone: lift on hover, confirm when a file is staged */
+.dropzone:hover {
+  border-color: var(--line-strong);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent);
+}
+.dropzone.has-file {
+  border-style: solid;
+  border-color: rgba(79, 209, 197, 0.4);
+}
+.dropzone.has-file .filename {
+  color: var(--brand);
+}
+
+/* run button: align spinner + label, add a pressed state */
+.run {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+}
+.run:active:not(:disabled) {
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+
+/* spinners */
+.run-spinner,
+.spinner {
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  animation: spin 0.7s linear infinite;
+}
+.run-spinner {
+  width: 13px;
+  height: 13px;
+  border-color: rgba(7, 9, 13, 0.35);
+  border-top-color: var(--ink-900);
+}
+.spinner {
+  width: 15px;
+  height: 15px;
+  border-color: rgba(79, 209, 197, 0.25);
+  border-top-color: var(--brand);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* "working" pipeline shown while a verification is in flight */
+.working {
+  padding: 22px 24px;
+}
+.working-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+.pipeline {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+.pipeline li {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    border-color: var(--line);
+    color: var(--text-faint);
+  }
+  50% {
+    opacity: 1;
+    border-color: rgba(79, 209, 197, 0.4);
+    color: var(--brand);
+  }
+}
+
+/* skeleton result cards */
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sk {
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.035) 25%,
+    rgba(255, 255, 255, 0.08) 37%,
+    rgba(255, 255, 255, 0.035) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+.sk-title {
+  height: 11px;
+  width: 38%;
+  margin-bottom: 8px;
+}
+.sk-line {
+  height: 13px;
+  width: 100%;
+}
+.sk-line.short {
+  width: 62%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* honour reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
