@@ -1,4 +1,10 @@
+<div align="center">
+
+<img src="docs/assets/logo.svg" width="84" alt="ap-verify logo" />
+
 # ap-verify
+
+### An accounts-payable agent that knows when it's wrong.
 
 [![CI](https://github.com/Devanshjoshi2804/ap-verify/actions/workflows/ci.yml/badge.svg)](https://github.com/Devanshjoshi2804/ap-verify/actions/workflows/ci.yml)
 [![Eval gate](https://github.com/Devanshjoshi2804/ap-verify/actions/workflows/eval.yml/badge.svg)](https://github.com/Devanshjoshi2804/ap-verify/actions/workflows/eval.yml)
@@ -7,16 +13,44 @@
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![Checked with mypy](https://img.shields.io/badge/mypy-strict-blue.svg)](https://mypy-lang.org/)
 
-**An accounts-payable agent that knows when it's wrong.**
+A vision model extracts the invoice → an independent **critic** and a **3-way match**
+decide whether it's safe to pay — and it refuses to auto-approve a hallucinated total.
 
-Anyone can wire an LLM to read an invoice. The hard, valuable problem in finance
-AI is *trust*: an agent that approves payments must never hallucinate a total, a
-vendor, or a bank account, and must never pay for goods that were not ordered or
-received. `ap-verify` treats *"knowing when the extraction is wrong"* as the core
-engineering problem — a vision model extracts the invoice, then two independent
-verifiers (a **critic** and a **3-way matcher**) decide whether it is safe to pay.
+[Quickstart](#run-locally--no-api-keys) · [Results](#results-at-a-glance) · [How it works](#the-pipeline) · [Architecture](#architecture) · [Web UI](#web-ui) · [Roadmap](#roadmap)
 
-**Contents:** [Results](#results-at-a-glance) · [Benchmark](#benchmark) · [Pipeline](#the-pipeline) · [Architecture](#architecture) · [Setup](#setup) · [Run locally (no keys)](#run-locally--no-api-keys) · [Usage](#usage) · [Collections agent](#collections-agent-whatsapp) · [Web UI](#web-ui) · [Development](#development) · [Roadmap](#roadmap) · [License](#license)
+</div>
+
+<p align="center">
+  <img src="docs/assets/hero.png" width="860" alt="ap-verify audit terminal: AUTO-APPROVE at 100% confidence, extracted invoice, and per-field confidence meters" />
+</p>
+
+<details>
+<summary>See the full audit view — verdict, extracted fields, 3-way match, and the pipeline trace</summary>
+
+<p align="center">
+  <img src="docs/assets/demo.png" width="860" alt="Full ap-verify audit: verdict, extracted invoice, per-field confidence, 3-way match, and pipeline trace" />
+</p>
+
+</details>
+
+> **Why this exists.** Anyone can wire an LLM to read an invoice. The hard, valuable
+> problem in finance AI is *trust*: an agent that approves payments must never
+> hallucinate a total, a vendor, or a bank account, and must never pay for goods that
+> were not ordered or received. ap-verify treats **"knowing when the extraction is
+> wrong"** as the core engineering problem — and *measures* exactly when automation is safe.
+
+## What you get
+
+- **Vision extraction with fallback** — Gemini → Groq → Mistral → Ollama, or **fully local with no API keys** via Ollama.
+- **A deterministic critic** — catches hallucinated or transposed totals, invalid GSTINs, and broken arithmetic, and cross-checks every field against the page text.
+- **3-way match** — invoice ↔ purchase order ↔ goods receipt, before anything is approved.
+- **An eval harness on real invoices** (DocILE, CORD) — per-field and line-item accuracy, calibration (ECE), multi-signal fusion, and an honest selective-autonomy curve.
+- **Fraud layer** — duplicate, vendor-master / BEC, anomaly, and collusion detection, each with exact-linear explanations.
+- **CLI and a web "audit terminal"** (shown above), plus a WhatsApp collections agent.
+
+## Contents
+
+[Results](#results-at-a-glance) · [Benchmark](#benchmark) · [Pipeline](#the-pipeline) · [Architecture](#architecture) · [Setup](#setup) · [Run locally (no keys)](#run-locally--no-api-keys) · [Usage](#usage) · [Collections agent](#collections-agent-whatsapp) · [Web UI](#web-ui) · [Development](#development) · [Roadmap](#roadmap) · [License](#license)
 
 ## Results at a glance
 
