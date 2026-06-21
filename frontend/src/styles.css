@@ -571,6 +571,23 @@ body {
   font-family: var(--font-mono);
 }
 
+/* demo banner (static Vercel demo) */
+.demo-note {
+  margin-top: 22px;
+  padding: 11px 16px;
+  border: 1px solid rgba(79, 209, 197, 0.28);
+  background: linear-gradient(180deg, rgba(79, 209, 197, 0.06), transparent);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.demo-note strong {
+  color: var(--brand);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
 /* ---- demo-grade polish ---- */
 
 /* keyboard focus — visible and on-brand, suppressed for mouse clicks */

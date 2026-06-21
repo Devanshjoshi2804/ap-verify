@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchSamples, loadSample, reviewInvoice } from "./api";
+import { DEMO, fetchSamples, loadSample, reviewInvoice } from "./api";
 import type { ReviewResult } from "./types";
 import { UploadConsole } from "./components/UploadConsole";
 import { ReviewView } from "./components/ReviewView";
@@ -53,6 +53,13 @@ export function App() {
           whether it is safe to pay — never approving a hallucinated total.
         </p>
       </header>
+
+      {DEMO && (
+        <div className="demo-note">
+          <strong>Live demo.</strong> The bundled samples show real, precomputed audits.
+          Uploading your own invoice runs the live pipeline — see the repo to run it locally.
+        </div>
+      )}
 
       <UploadConsole
         file={file}

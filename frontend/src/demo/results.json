@@ -1,0 +1,890 @@
+{
+  "clean_invoice_01.pdf": {
+    "decision": "AUTO_APPROVE",
+    "reasons": [
+      "extraction verified and 3-way match clean"
+    ],
+    "overall_confidence": 1.0,
+    "invoice": {
+      "vendor_name": "ACME Steel Pvt Ltd",
+      "vendor_gstin": "27AABCU9603R1ZN",
+      "invoice_number": "INV-2025-0042",
+      "invoice_date": "04-06-2025",
+      "currency": "INR",
+      "subtotal": "156100.00",
+      "tax": "28100.00",
+      "total": "184200.00",
+      "purchase_order_ref": "PO-2025-1001",
+      "line_items": [
+        {
+          "description": "TMT Steel Bars (12mm)",
+          "quantity": 2,
+          "unit_price": "78050.00",
+          "line_total": "156100.00",
+          "hsn_sac": null
+        }
+      ]
+    },
+    "fields": [
+      {
+        "field": "vendor_name",
+        "value": "ACME Steel Pvt Ltd",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'ACME Steel Pvt Ltd' corroborated by page text"
+          }
+        ]
+      },
+      {
+        "field": "vendor_gstin",
+        "value": "27AABCU9603R1ZN",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'27AABCU9603R1ZN' found in page text"
+          },
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "format and checksum valid"
+          }
+        ]
+      },
+      {
+        "field": "invoice_number",
+        "value": "INV-2025-0042",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'INV-2025-0042' found in page text"
+          },
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "within GST rules"
+          }
+        ]
+      },
+      {
+        "field": "invoice_date",
+        "value": "04-06-2025",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "'04-06-2025' parses as a date"
+          }
+        ]
+      },
+      {
+        "field": "currency",
+        "value": "INR",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "'INR' is a known currency"
+          }
+        ]
+      },
+      {
+        "field": "subtotal",
+        "value": "156100.00",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "156100.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "passed",
+            "detail": "\u03a3 line totals 156100.00 vs subtotal 156100.00"
+          }
+        ]
+      },
+      {
+        "field": "tax",
+        "value": "28100.00",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "14050.00 found in page text"
+          },
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "14050.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "passed",
+            "detail": "CGST+SGST+IGST 28100.00 vs tax 28100.00"
+          }
+        ]
+      },
+      {
+        "field": "total",
+        "value": "184200.00",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "184200.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "passed",
+            "detail": "subtotal+tax 184200.00 vs total 184200.00"
+          }
+        ]
+      }
+    ],
+    "match": {
+      "outcome": "MATCHED",
+      "findings": [
+        {
+          "dimension": "vendor",
+          "status": "matched",
+          "detail": "vendor matches (similarity 1.00)"
+        },
+        {
+          "dimension": "po_reference",
+          "status": "matched",
+          "detail": "cites PO PO-2025-1001"
+        },
+        {
+          "dimension": "subtotal",
+          "status": "matched",
+          "detail": "subtotal 156100.00 matches PO-priced 156100.00"
+        }
+      ],
+      "line_matches": [
+        {
+          "invoice_description": "TMT Steel Bars (12mm)",
+          "status": "matched",
+          "detail": "qty and price within tolerance"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "step": "render",
+        "detail": "1 page(s)",
+        "duration_ms": 197.246
+      },
+      {
+        "step": "extract",
+        "detail": "ACME Steel Pvt Ltd \u00b7 total 184200.00",
+        "duration_ms": 6559.363
+      },
+      {
+        "step": "ocr",
+        "detail": "333 chars",
+        "duration_ms": 1366.045
+      },
+      {
+        "step": "critic",
+        "detail": "AUTO_APPROVE @ 100%",
+        "duration_ms": 0.404
+      },
+      {
+        "step": "match",
+        "detail": "MATCHED",
+        "duration_ms": 0.137
+      },
+      {
+        "step": "approve",
+        "detail": "AUTO_APPROVE",
+        "duration_ms": 0.0
+      }
+    ],
+    "audit": [],
+    "consistency": []
+  },
+  "clean_invoice_02.pdf": {
+    "decision": "AUTO_APPROVE",
+    "reasons": [
+      "extraction verified and 3-way match clean"
+    ],
+    "overall_confidence": 1.0,
+    "invoice": {
+      "vendor_name": "Bharat Textiles LLP",
+      "vendor_gstin": "29AAGCB1234M1ZK",
+      "invoice_number": "BT/2025/318",
+      "invoice_date": "17-05-2025",
+      "currency": "INR",
+      "subtotal": "79200.00",
+      "tax": "14184.00",
+      "total": "93384.00",
+      "purchase_order_ref": "PO-2025-1002",
+      "line_items": [
+        {
+          "description": "Cotton Fabric (roll)",
+          "quantity": 12,
+          "unit_price": "4200.00",
+          "line_total": "50400.00",
+          "hsn_sac": null
+        },
+        {
+          "description": "Polyester Blend (roll)",
+          "quantity": 8,
+          "unit_price": "3600.00",
+          "line_total": "28800.00",
+          "hsn_sac": null
+        }
+      ]
+    },
+    "fields": [
+      {
+        "field": "vendor_name",
+        "value": "Bharat Textiles LLP",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'Bharat Textiles LLP' corroborated by page text"
+          }
+        ]
+      },
+      {
+        "field": "vendor_gstin",
+        "value": "29AAGCB1234M1ZK",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'29AAGCB1234M1ZK' found in page text"
+          },
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "format and checksum valid"
+          }
+        ]
+      },
+      {
+        "field": "invoice_number",
+        "value": "BT/2025/318",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'BT/2025/318' found in page text"
+          },
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "within GST rules"
+          }
+        ]
+      },
+      {
+        "field": "invoice_date",
+        "value": "17-05-2025",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "'17-05-2025' parses as a date"
+          }
+        ]
+      },
+      {
+        "field": "currency",
+        "value": "INR",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "'INR' is a known currency"
+          }
+        ]
+      },
+      {
+        "field": "subtotal",
+        "value": "79200.00",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "79200.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "passed",
+            "detail": "\u03a3 line totals 79200.00 vs subtotal 79200.00"
+          }
+        ]
+      },
+      {
+        "field": "tax",
+        "value": "14184.00",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "7092.00 found in page text"
+          },
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "7092.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "passed",
+            "detail": "CGST+SGST+IGST 14184.00 vs tax 14184.00"
+          }
+        ]
+      },
+      {
+        "field": "total",
+        "value": "93384.00",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "93384.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "passed",
+            "detail": "subtotal+tax 93384.00 vs total 93384.00"
+          }
+        ]
+      }
+    ],
+    "match": {
+      "outcome": "MATCHED",
+      "findings": [
+        {
+          "dimension": "vendor",
+          "status": "matched",
+          "detail": "vendor matches (similarity 1.00)"
+        },
+        {
+          "dimension": "po_reference",
+          "status": "matched",
+          "detail": "cites PO PO-2025-1002"
+        },
+        {
+          "dimension": "subtotal",
+          "status": "matched",
+          "detail": "subtotal 79200.00 matches PO-priced 79200.00"
+        }
+      ],
+      "line_matches": [
+        {
+          "invoice_description": "Cotton Fabric (roll)",
+          "status": "matched",
+          "detail": "qty and price within tolerance"
+        },
+        {
+          "invoice_description": "Polyester Blend (roll)",
+          "status": "matched",
+          "detail": "qty and price within tolerance"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "step": "render",
+        "detail": "1 page(s)",
+        "duration_ms": 196.598
+      },
+      {
+        "step": "extract",
+        "detail": "Bharat Textiles LLP \u00b7 total 93384.00",
+        "duration_ms": 8399.335
+      },
+      {
+        "step": "ocr",
+        "detail": "361 chars",
+        "duration_ms": 1412.84
+      },
+      {
+        "step": "critic",
+        "detail": "AUTO_APPROVE @ 100%",
+        "duration_ms": 0.419
+      },
+      {
+        "step": "match",
+        "detail": "MATCHED",
+        "duration_ms": 0.357
+      },
+      {
+        "step": "approve",
+        "detail": "AUTO_APPROVE",
+        "duration_ms": 0.0
+      }
+    ],
+    "audit": [],
+    "consistency": []
+  },
+  "clean_invoice_03.pdf": {
+    "decision": "AUTO_APPROVE",
+    "reasons": [
+      "extraction verified and 3-way match clean"
+    ],
+    "overall_confidence": 1.0,
+    "invoice": {
+      "vendor_name": "Sunrise Electronics",
+      "vendor_gstin": "07AAECS5678K1ZR",
+      "invoice_number": "SE-9921",
+      "invoice_date": "29-04-2025",
+      "currency": "INR",
+      "subtotal": "44250.00",
+      "tax": "7964.00",
+      "total": "52214.00",
+      "purchase_order_ref": "PO-2025-1003",
+      "line_items": [
+        {
+          "description": "LED Panel 40W",
+          "quantity": 25,
+          "unit_price": "1450.00",
+          "line_total": "36250.00",
+          "hsn_sac": null
+        },
+        {
+          "description": "Driver Module",
+          "quantity": 25,
+          "unit_price": "320.00",
+          "line_total": "8000.00",
+          "hsn_sac": null
+        }
+      ]
+    },
+    "fields": [
+      {
+        "field": "vendor_name",
+        "value": "Sunrise Electronics",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'Sunrise Electronics' corroborated by page text"
+          }
+        ]
+      },
+      {
+        "field": "vendor_gstin",
+        "value": "07AAECS5678K1ZR",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'07AAECS5678K1ZR' found in page text"
+          },
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "format and checksum valid"
+          }
+        ]
+      },
+      {
+        "field": "invoice_number",
+        "value": "SE-9921",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'SE-9921' found in page text"
+          },
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "within GST rules"
+          }
+        ]
+      },
+      {
+        "field": "invoice_date",
+        "value": "29-04-2025",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "'29-04-2025' parses as a date"
+          }
+        ]
+      },
+      {
+        "field": "currency",
+        "value": "INR",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "'INR' is a known currency"
+          }
+        ]
+      },
+      {
+        "field": "subtotal",
+        "value": "44250.00",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "44250.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "passed",
+            "detail": "\u03a3 line totals 44250.00 vs subtotal 44250.00"
+          }
+        ]
+      },
+      {
+        "field": "tax",
+        "value": "7964.00",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "3982.00 found in page text"
+          },
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "3982.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "passed",
+            "detail": "CGST+SGST+IGST 7964.00 vs tax 7964.00"
+          }
+        ]
+      },
+      {
+        "field": "total",
+        "value": "52214.00",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "52214.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "passed",
+            "detail": "subtotal+tax 52214.00 vs total 52214.00"
+          }
+        ]
+      }
+    ],
+    "match": {
+      "outcome": "MATCHED",
+      "findings": [
+        {
+          "dimension": "vendor",
+          "status": "matched",
+          "detail": "vendor matches (similarity 1.00)"
+        },
+        {
+          "dimension": "po_reference",
+          "status": "matched",
+          "detail": "cites PO PO-2025-1003"
+        },
+        {
+          "dimension": "subtotal",
+          "status": "matched",
+          "detail": "subtotal 44250.00 matches PO-priced 44250.00"
+        }
+      ],
+      "line_matches": [
+        {
+          "invoice_description": "LED Panel 40W",
+          "status": "matched",
+          "detail": "qty and price within tolerance"
+        },
+        {
+          "invoice_description": "Driver Module",
+          "status": "matched",
+          "detail": "qty and price within tolerance"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "step": "render",
+        "detail": "1 page(s)",
+        "duration_ms": 195.084
+      },
+      {
+        "step": "extract",
+        "detail": "Sunrise Electronics \u00b7 total 52214.00",
+        "duration_ms": 5940.395
+      },
+      {
+        "step": "ocr",
+        "detail": "343 chars",
+        "duration_ms": 1398.302
+      },
+      {
+        "step": "critic",
+        "detail": "AUTO_APPROVE @ 100%",
+        "duration_ms": 0.403
+      },
+      {
+        "step": "match",
+        "detail": "MATCHED",
+        "duration_ms": 0.199
+      },
+      {
+        "step": "approve",
+        "detail": "AUTO_APPROVE",
+        "duration_ms": 0.0
+      }
+    ],
+    "audit": [],
+    "consistency": []
+  },
+  "corrupted_total.pdf": {
+    "decision": "HOLD",
+    "reasons": [
+      "extraction confidence 30%; flagged: total"
+    ],
+    "overall_confidence": 0.3,
+    "invoice": {
+      "vendor_name": "ACME Steel Pvt Ltd",
+      "vendor_gstin": "27AABCU9603R1ZN",
+      "invoice_number": "INV-2025-0042",
+      "invoice_date": "04-06-2025",
+      "currency": "INR",
+      "subtotal": "156100.00",
+      "tax": "28100.00",
+      "total": "184000.00",
+      "purchase_order_ref": "PO-2025-1001",
+      "line_items": [
+        {
+          "description": "TMT Steel Bars (12mm)",
+          "quantity": 2,
+          "unit_price": "78050.00",
+          "line_total": "156100.00",
+          "hsn_sac": null
+        }
+      ]
+    },
+    "fields": [
+      {
+        "field": "vendor_name",
+        "value": "ACME Steel Pvt Ltd",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'ACME Steel Pvt Ltd' corroborated by page text"
+          }
+        ]
+      },
+      {
+        "field": "vendor_gstin",
+        "value": "27AABCU9603R1ZN",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'27AABCU9603R1ZN' found in page text"
+          },
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "format and checksum valid"
+          }
+        ]
+      },
+      {
+        "field": "invoice_number",
+        "value": "INV-2025-0042",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "'INV-2025-0042' found in page text"
+          },
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "within GST rules"
+          }
+        ]
+      },
+      {
+        "field": "invoice_date",
+        "value": "04-06-2025",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "'04-06-2025' parses as a date"
+          }
+        ]
+      },
+      {
+        "field": "currency",
+        "value": "INR",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "format",
+            "status": "passed",
+            "detail": "'INR' is a known currency"
+          }
+        ]
+      },
+      {
+        "field": "subtotal",
+        "value": "156100.00",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "156100.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "passed",
+            "detail": "\u03a3 line totals 156100.00 vs subtotal 156100.00"
+          }
+        ]
+      },
+      {
+        "field": "tax",
+        "value": "28100.00",
+        "confidence": 1.0,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "14050.00 found in page text"
+          },
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "14050.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "passed",
+            "detail": "CGST+SGST+IGST 28100.00 vs tax 28100.00"
+          }
+        ]
+      },
+      {
+        "field": "total",
+        "value": "184000.00",
+        "confidence": 0.3,
+        "checks": [
+          {
+            "category": "ocr_cross_check",
+            "status": "passed",
+            "detail": "184000.00 found in page text"
+          },
+          {
+            "category": "arithmetic",
+            "status": "failed",
+            "detail": "subtotal+tax 184200.00 vs total 184000.00"
+          }
+        ]
+      }
+    ],
+    "match": {
+      "outcome": "MATCHED",
+      "findings": [
+        {
+          "dimension": "vendor",
+          "status": "matched",
+          "detail": "vendor matches (similarity 1.00)"
+        },
+        {
+          "dimension": "po_reference",
+          "status": "matched",
+          "detail": "cites PO PO-2025-1001"
+        },
+        {
+          "dimension": "subtotal",
+          "status": "matched",
+          "detail": "subtotal 156100.00 matches PO-priced 156100.00"
+        }
+      ],
+      "line_matches": [
+        {
+          "invoice_description": "TMT Steel Bars (12mm)",
+          "status": "matched",
+          "detail": "qty and price within tolerance"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "step": "render",
+        "detail": "1 page(s)",
+        "duration_ms": 196.116
+      },
+      {
+        "step": "extract",
+        "detail": "ACME Steel Pvt Ltd \u00b7 total 184000.00",
+        "duration_ms": 5964.426
+      },
+      {
+        "step": "ocr",
+        "detail": "333 chars",
+        "duration_ms": 1365.451
+      },
+      {
+        "step": "critic",
+        "detail": "HOLD @ 30%",
+        "duration_ms": 0.423
+      },
+      {
+        "step": "match",
+        "detail": "MATCHED",
+        "duration_ms": 0.138
+      },
+      {
+        "step": "approve",
+        "detail": "HOLD",
+        "duration_ms": 0.0
+      }
+    ],
+    "audit": [],
+    "consistency": []
+  }
+}
